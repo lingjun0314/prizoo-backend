@@ -1,8 +1,9 @@
-開啟後端 docker 的操作手冊！
+開啟後端 docker 的操作手冊
 ===
 
 安裝 docker
 ---
+
 首先需要確認 windows 下的 linux 子系統有沒有開啟，在開始搜尋 開啟或關閉windows功能
 
 ![test](https://github.com/lingjun0314/prizoo-system/blob/main/go/images/%E9%96%8B%E5%95%9F%E6%88%96%E9%97%9C%E9%96%89.png)
@@ -33,6 +34,7 @@
 
 拉取鏡像
 ---
+
 在這個專案中一共會用到兩個（未來會有三個）公共鏡像，分別是 redis 及 hashicorp/consul，從最上方的搜尋欄輸入這兩個公共鏡像的名字（圖片以 Redis 舉例）：
 
 ![test](https://github.com/lingjun0314/prizoo-system/blob/main/go/images/%E6%8B%89%E5%AE%98%E6%96%B9%E9%8F%A1%E5%83%8F.png)
@@ -43,3 +45,4 @@
 ![test](https://github.com/lingjun0314/prizoo-system/blob/main/go/images/%E6%8B%89%E5%8F%96%E7%9A%84%E9%8F%A1%E5%83%8F.png)
 
 保留在這個頁面，將標籤從 local 切換成 hub，列表中就是所有後端的服務鏡像，如果看到裡面有很多個鏡像，那麼就會需要 pull 所有 tag 為 latest 的鏡像
+（待更新）

@@ -10,3 +10,9 @@ Prizoo 微服務系統
 Go/Gin/go-micro/protobuf/consul/Redis/RabbitMQ/ElasticSearch/firestore/firebase Authentication/Firebase storage/AWS EC2/docker
 
 原本想使用 gRPC 來加快服務間的通信，但開發時 go-micro 框架剛更新至 v5 版本，還暫時沒有支援 gRPC ，因此選擇 http 搭配 protobuf 開發
+
+系統架構
+---
+
+整體體統資料流可以參考下圖：
+![data flow](https://github.com/lingjun0314/prizoo-system/blob/main/go/images/%E6%8B%89%E5%8F%96%E7%9A%84%E9%8F%A1%E5%83%8F.png)
