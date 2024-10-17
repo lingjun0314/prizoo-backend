@@ -15,4 +15,7 @@ Go/Gin/go-micro/protobuf/consul/Redis/RabbitMQ/ElasticSearch/firestore/firebase 
 ---
 
 整體體統資料流可以參考下圖：
-![data flow](https://github.com/lingjun0314/prizoo-system/blob/main/go/images/%E6%8B%89%E5%8F%96%E7%9A%84%E9%8F%A1%E5%83%8F.png)
+![data flow](https://github.com/lingjun0314/prizoo-backend/blob/main/go/images/%E6%8A%BD%E7%8D%8E%E5%B9%B3%E5%8F%B0system%20structure.png)
+
+目前微服務架構暫時拆分為七個服務，主要拆分依據為系統功能，且盡量避免不同服務操作相同資料表，具體架構如下：
+![data flow](https://github.com/lingjun0314/prizoo-backend/blob/main/go/images/Microservices%20structure.drawio.png)
