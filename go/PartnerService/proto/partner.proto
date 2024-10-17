@@ -1,0 +1,99 @@
+// protoc --proto_path=. --micro_out=. --go_out=:. partner.proto
+syntax = "proto3";
+
+option go_package = "./partner";
+
+import "google/protobuf/struct.proto";
+
+service partner {
+    rpc GetPartnerByName(GetPartnerByNameRequest) returns (GetPartnerByNameResponse){}
+    rpc GetPartnerById(GetPartnerByIdRequest) returns (GetPartnerByIdResponse){}
+    rpc CreatePartner(CreatePartnerRequest) returns (CreatePartnerResponse){}
+    rpc UpdatePartner(UpdatePartnerRequest) returns (UpdatePartnerResponse){}
+    rpc DeletePartner(DeletePartnerRequest) returns (DeletePartnerResponse){}
+    rpc GetPartners(GetPartnersRequest) returns (GetPartnersResponse){}
+}
+
+message ContactModule {
+    string tel = 1;
+    string phone = 2;
+    string email = 3;
+    string address = 4;
+}
+
+message CustomerModule {
+    string ageRange = 1;
+    string sex = 2;
+    string region = 3;
+}
+
+message SocialMediaModule {
+    string instagram = 1;
+    string facebook = 2;
+    string threads = 3;
+    string twitter = 4;
+}
+
+message PartnerModule {
+    string brandName = 1;
+    string personInCharge = 2;
+    string companyName = 3;
+    string contactPerson = 8;
+    bool deleteStatus = 4;
+    ContactModule contact = 5;
+    CustomerModule customer = 6;
+    SocialMediaModule socialMedia = 7;
+}
+
+message GetPartnerByNameRequest {
+    string brandName = 1;
+}
+
+message GetPartnerByNameResponse {
+    string message = 1;
+    int32 statusCode = 2;
+}
+
+message GetPartnerByIdRequest {
+    string id = 1;
+}
+
+message GetPartnerByIdResponse {
+    string message = 1;
+    int32 statusCode = 2;
+    google.protobuf.Struct partner = 3;
+}
+
+message CreatePartnerRequest {
+    PartnerModule partner = 1;
+}
+
+message CreatePartnerResponse {
+    string message = 1;
+    int32 statusCode = 2;
+}
+
+message UpdatePartnerRequest {
+    string id = 1;
+    PartnerModule partner = 2;
+}
+
+message UpdatePartnerResponse {
+    string message = 1;
+    int32 statusCode = 2;
+}
+
+message DeletePartnerRequest {
+    string id = 1;
+}
+
+message DeletePartnerResponse {
+    string message = 1;
+    int32 statusCode = 2;
+}
+
+message GetPartnersRequest {}
+
+message GetPartnersResponse {
+    repeated google.protobuf.Struct partner = 1;
+}

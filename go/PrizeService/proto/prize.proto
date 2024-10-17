@@ -1,0 +1,51 @@
+// protoc --proto_path=. --micro_out=. --go_out=:. prize.proto
+syntax = "proto3";
+
+option go_package = "./prize";
+
+service prize {
+    rpc GetPrizeById(GetPrizeByIdRequest) returns (GetPrizeByIdResponse){}
+    rpc CreatePrize(CreatePrizeRequest) returns (CreatePrizeResponse){}
+    rpc UpdatePrize(UpdatePrizeRequest) returns (UpdatePrizeResponse){}
+}
+
+message GetPrizeByIdRequest {
+    string id = 1;
+}
+
+message GetPrizeByIdResponse {
+    string name = 1;
+    string imagePath = 2;
+    string additionalPrizeName = 3;
+    int32 additionalPrizeTicketAmount = 4;
+    string additionalPrizeImagePath = 5;
+    repeated string ticketList = 6;
+}
+
+message CreatePrizeRequest {
+    string name = 1;
+    string imagePath = 2;
+    string additionalPrizeName = 3;
+    int32 additionalPrizeTicketAmount = 4;
+    string additionalPrizeImagePath = 5;
+    int32 version = 6;
+}
+
+message CreatePrizeResponse {
+    int32 statusCode = 1;
+    string message = 2;
+}
+
+message UpdatePrizeRequest {
+    string name = 1;
+    string imagePath = 2;
+    string additionalPrizeName = 3;
+    int32 additionalPrizeTicketAmount = 4;
+    string additionalPrizeImagePath = 5;
+    string documentPath = 6;
+}
+
+message UpdatePrizeResponse {
+    string message = 1;
+    int32 statusCode = 2;
+}

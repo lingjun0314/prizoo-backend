@@ -1,0 +1,88 @@
+// protoc --proto_path=. --micro_out=. --go_out=:. activity.proto
+syntax = "proto3";
+
+option go_package = "./activity";
+
+import "google/protobuf/struct.proto";
+
+service activity {
+    rpc GetActivity(GetActivityRequest) returns (GetActivityResponse){}
+    rpc GetActivityById(GetActivityByIdRequest) returns (GetActivityByIdResponse){}
+    rpc CreateActivity(CreateActivityRequest) returns (CreateActivityResponse){}
+    rpc DeleteActivity(DeleteActivityRequest) returns (DeleteActivityResponse){}
+    rpc UpdateActivity(UpdateActivityRequest) returns (UpdateActivityResponse){}
+    rpc GetActivityUpdateHistoryById(GetActivityUpdateHistoryByIdRequest) returns (GetActivityUpdateHistoryByIdResponse){}
+}
+
+message PrizeModule {
+    string name = 1;
+    string imagePath = 2;
+    string additionalPrizeName = 3;
+    int32 additionalPrizeTicketAmount = 4;
+    string additionalPrizeImagePath = 5;
+    int32 version = 6;
+}
+
+message GetActivityByIdRequest {
+    string id = 1;
+}
+
+message GetActivityByIdResponse {
+    google.protobuf.Struct data = 1;
+}
+
+message CreateActivityRequest {
+    string title = 1;
+    string detial = 2;
+    int64 startTime = 3;
+    int64 endTime = 4;
+    string partner = 5;
+    PrizeModule prize = 6;
+}
+
+message CreateActivityResponse {
+    bool success = 1;
+    string message = 2;
+    int32 statusCode = 3;
+}
+
+message GetActivityRequest{}
+
+message GetActivityResponse {
+    repeated google.protobuf.Struct activity = 1;
+}
+
+message DeleteActivityRequest {
+    string id = 1;
+}
+
+message DeleteActivityResponse {
+    bool success = 1;
+    int32 statusCode = 2;
+    string message = 3;
+}
+
+message UpdateActivityRequest {
+    string title = 1;
+    string detial = 2;
+    int64 startTime = 3;
+    int64 endTime = 4;
+    PrizeModule prize = 5;
+    string id = 6;
+}
+
+message UpdateActivityResponse {
+    bool success = 1;
+    int32 statusCode = 2;
+    string message = 3;
+}
+
+message GetActivityUpdateHistoryByIdRequest {
+    string id = 1;
+}
+
+message GetActivityUpdateHistoryByIdResponse {
+    repeated google.protobuf.Struct data = 1;
+    string message = 2;
+    int32 statusCode = 3;
+}
